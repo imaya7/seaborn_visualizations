@@ -8,9 +8,9 @@ This project includes two visualization parts to explore the seaborn library. Th
 
 ### Files 
 - **Exercise_Data.csv**: Custom file containing pulse data collected at different times during exercise, along with the subject’s diet and type of activity.
--**copilotchat_vis** : copilot chat log
--**heat_3** : Part 1 file 
--**p_test3**: Part 2 file 
+- **copilotchat_vis** : copilot chat log
+- **heat_3** : Part 1 file 
+- **p_test3**: Part 2 file 
 
 ### Libraries Used
 - Pandas as pd
@@ -21,24 +21,24 @@ This project includes two visualization parts to explore the seaborn library. Th
 
 ### Visualization Techniques Used
 
-**Data Transformation**
-- Normalization of numeric data
-- Creation of categorical variables (decades)
-- Filtering for relevant data subsets
-- 
-**Plot Customization**
-- Custom color palettes
-- Appropriate axis scaling
-- log scales 
-- Clear titles and labels
-- Legend customization
-- Grid and layout adjustments
-- 
-**Statistical Visualization**
-- Distribution plots (histograms, ECDFs)
-- Relationship plots (scatter plots, line plots)
-- Categorical plots (box plots, count plots, strip plots)
--  visualizations (heatmaps)
+- **Data Transformation**
+  - Normalization of numeric data
+  - Creation of categorical variables (decades)
+  - Filtering for relevant data subsets
+  
+- **Plot Customization**
+  - Custom color palettes
+  - Appropriate axis scaling
+  - log scales 
+  - Clear titles and labels
+  - Legend customization
+  - Grid and layout adjustments
+  
+- **Statistical Visualization**
+  - Distribution plots (histograms, ECDFs)
+  - Relationship plots (scatter plots, line plots)
+  - Categorical plots (box plots, count plots, strip plots)
+  -  visualizations (heatmaps)
 
 
 ### Part 1: Planet Discovery Visualizations 
