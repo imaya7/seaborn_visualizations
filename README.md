@@ -71,6 +71,14 @@ This project includes two visualization parts to explore the seaborn library. Th
   - Box plots compare how diet and exercise type influence pulse rates
   - Includes simple explanations of both plots written for an elementary school audience to help make data more accessible
 
+
+### Data Processing and Error Handling
+- Both scripts include error handling 
+    - Checking for file existence
+    - Validating required data columns
+    - Handling missing values
+ 
+
 ### Limitations
 - Normalizing the data makes it easier to visualize but can change the true differences in actual pulse rates
 - Mass and orbital period are highly skewed, so even with log scaling, outliers may still dominate
