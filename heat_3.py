@@ -11,13 +11,13 @@ csv_path = os.path.join(script_dir, "Exercise_Data.csv")
 
 # Error handling for file existence
 if not os.path.exists(csv_path):
-    raise FileNotFoundError(f"CSV file not found at path: {csv_path}")
+    raise FileNotFoundError(f"Error with find file path: {csv_path}")
 
 # Load the exercise data
 try:
     data = pd.read_csv(csv_path)
 except Exception as e:
-    raise ValueError(f"Error reading CSV file: {e}")
+    raise ValueError(f"Error with reading the csv: {e}")
 
 # Validate required columns
 required_columns = ['1 min', '15 min', '30 min', 'kind', 'diet']
