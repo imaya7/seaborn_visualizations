@@ -9,8 +9,8 @@ This project includes two visualization parts to explore the seaborn library. Th
 ### Files 
 - **Exercise_Data.csv**: Custom file containing pulse data collected at different times during exercise, along with the subject’s diet and type of activity.
 - **copilotchat_vis** : copilot chat log
-- **heat_3** : Part 1 file 
-- **p_test3**: Part 2 file 
+- **heat_3** : Part 1 file, contains data visualizations on the Exercise data 
+- **p_test3**: Part 2 file, contains data visualization on the built in seaborn planet dataset 
 
 ### Libraries Used
 - Pandas as pd
@@ -71,7 +71,7 @@ This project includes two visualization parts to explore the seaborn library. Th
   - Box plots compare how diet and exercise type influence pulse rates
   - Includes simple explanations of both plots written for an elementary school audience to help make data more accessible
 
-**Limitations**
+### Limitations
 - Normalizing the data makes it easier to visualize but can change the true differences in actual pulse rates
 - Mass and orbital period are highly skewed, so even with log scaling, outliers may still dominate
 - The dataset is filtered to remove missing values, which reduces the total number of usable observations
