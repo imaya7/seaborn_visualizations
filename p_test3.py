@@ -3,9 +3,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# Load and clean dataset
-#dropna() removes rows with NaN values in the specified columns
-planets = sns.load_dataset('planets').dropna(subset=['mass', 'orbital_period', 'year'])
+try:
+    # Load and clean dataset
+    # dropna() removes rows with NaN values in the specified columns
+    planets = sns.load_dataset('planets')
+    if planets is None:
+        raise ValueError("Dataset 'planets' could not be loaded.")
+    planets = planets.dropna(subset=['mass', 'orbital_period', 'year'])
+except Exception as e:
+    print(f"Error loading or cleaning dataset: {e}")
+    exit()
+
 
 # Create a 'decade' column for categorical grouping
 # Groups the discovery years together 
@@ -41,6 +49,14 @@ plt.colorbar(scatter.collections[0], label='Discovery Year') #shows the discorve
 plt.tight_layout() #Ajust layout 
 plt.show()
 
+# The scatter plot shows the relationship between the mass of planets and their orbital period, colored by the year of discovery.
+# The color of the points indicates the year of discovery, with a gradient from purple (earlier years) 
+# to yellow (later years). The bigger the dots the larger the mass is and the smaller the dots the smaller the mass is. 
+# From this scatter plot we can conclude that there is a correlation between the mass of the planet and the orbital period.
+# The plots shows that the planets with a longer orbital period tend to have a larger mass. Althought there are a few outliers 
+# that do not follow this trend. The plot also shows that majority of the plants found were from 2000 to 2010, 
+# which could because as time goes on our technology advances and we have a better chance at being able to find the planets.
+
 
 # Average Orbital Period Per Year with Rolling Avg
 # Calculate average orbital period per year
@@ -63,6 +79,11 @@ plt.ylabel('Average Orbital Period (days)')
 plt.legend(title="Legend") #adding a key 
 plt.tight_layout() # Adjust layout
 plt.show()
+
+# The line plot shows the average orbital period of planets discovered each year. This graph groups all of the planets found in the same year 
+# and takes the average of their orbital period. From this plot we can see that the average orbital period of planets discovered has been 
+# increasing over the years, this could be due to the fact that as time goes by we are able to create new technologies that pass our previous 
+# limitations and allow us to find planets. 
 
 # --------------------------------------
 # Distributional Plots 
@@ -145,19 +166,22 @@ plt.tight_layout() # Adjust layout
 plt.show()
 
 
-# Swarm Plot of Mass by Discovery Method
+# Strip Plot of Mass by Discovery Method
 #filters by top methods
+# Filters by top methods
 top_methods = planets['method'].value_counts().head(5).index
-plt.figure(figsize=(14, 6)) # Set figure size
-# Creates the swarm plot
-sns.swarmplot(data=planets[planets['method'].isin(top_methods)],
-              x='method', y='mass', palette='Set2', size=5, alpha=0.7)
+plt.figure(figsize=(14, 6))  # Set figure size
 
-plt.yscale('log') # Use log scale for mass distribution
+sns.stripplot(
+    data=planets[planets['method'].isin(top_methods)],
+    x='method', y='mass', palette='Set2', jitter=True, alpha=0.7  # jitter = better visibility
+)
+
+plt.yscale('log')  # Use log scale for mass distribution
 # Adds the title and labels
 plt.title('Planet Mass Distribution by Discovery Method')
 plt.xlabel('Discovery Method')
 plt.ylabel('Mass (Jupiter Masses)')
-plt.tight_layout() # Adjust layout
+plt.tight_layout()  # Adjust layout
 plt.show()
 
