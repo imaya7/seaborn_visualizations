@@ -9,8 +9,24 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # creating os path for the csv file
 csv_path = os.path.join(script_dir, "Exercise_Data.csv")
 
-# Load the excercise data
-data = pd.read_csv(csv_path)
+# Error handling for file existence
+if not os.path.exists(csv_path):
+    raise FileNotFoundError(f"CSV file not found at path: {csv_path}")
+
+# Load the exercise data
+try:
+    data = pd.read_csv(csv_path)
+except Exception as e:
+    raise ValueError(f"Error reading CSV file: {e}")
+
+# Validate required columns
+required_columns = ['1 min', '15 min', '30 min', 'kind', 'diet']
+if not all(col in data.columns for col in required_columns):
+    raise ValueError(f"Missing required columns in the dataset. Required columns: {required_columns}")
+
+# Check if the dataset is empty
+if data.empty:
+    raise ValueError("The dataset is empty. Please provide valid data.")
 
 # Extract numeric columns of the pulse data 
 pulse_data = data[['1 min', '15 min', '30 min']]
