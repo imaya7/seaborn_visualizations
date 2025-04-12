@@ -19,6 +19,27 @@ This project includes two visualization parts to explore the seaborn library. Th
 - Matplotlib
 - os (for handling file paths)
 
+### Visualization Techniques Used
+
+**Data Transformation**
+- Normalization of numeric data
+- Creation of categorical variables (decades)
+- Filtering for relevant data subsets
+- 
+**Plot Customization**
+- Custom color palettes
+- Appropriate axis scaling
+- log scales 
+- Clear titles and labels
+- Legend customization
+- Grid and layout adjustments
+- 
+**Statistical Visualization**
+- Distribution plots (histograms, ECDFs)
+- Relationship plots (scatter plots, line plots)
+- Categorical plots (box plots, count plots, strip plots)
+-  visualizations (heatmaps)
+
 
 ### Part 1: Planet Discovery Visualizations 
 - Uses the p_test3.py file and the built-in planets dataset in seaborn 
